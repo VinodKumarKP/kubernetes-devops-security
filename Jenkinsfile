@@ -21,7 +21,7 @@ pipeline {
             steps {
                withKubeConfig([credentialsId: 'kubeconfig']){
                     sh('kubectl version --short')
-                    sh('kubectl get nodes')
+                    sh('kubectl apply -f k8s_deployment_service.yaml')
                }
             }
         }
